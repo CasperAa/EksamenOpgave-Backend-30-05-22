@@ -3,6 +3,7 @@ package com.example.tourdefrance.Repository;
 import com.example.tourdefrance.Entity.Racer;
 import com.example.tourdefrance.Entity.Team;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -22,12 +23,12 @@ class RacerRepositoryTest {
     TeamRepository teamRepository;
 
     //Store attributes for the test methods
-    static int racer1Id, racer2Id, team1Id, team2Id;
-    static String team1Name, team2Name;
+    int racer1Id, racer2Id, team1Id, team2Id;
+    String team1Name, team2Name;
 
 
-    @BeforeAll
-    static void setUp(@Autowired RacerRepository racerRepository, @Autowired TeamRepository teamRepository) {
+    @BeforeEach
+    void setUp() {
         racerRepository.deleteAll();
         teamRepository.deleteAll();
         Team team1 = new Team("Premier Tech");
@@ -50,7 +51,7 @@ class RacerRepositoryTest {
     }
 
     @Test
-    void findRacerByTeam_Name() {
+    public void findRacerByTeam_Name() {
         List<Racer> allRacersInTeam = racerRepository.findRacerByTeam_Name(team1Name);
         assertEquals(1,allRacersInTeam.size());
     }
