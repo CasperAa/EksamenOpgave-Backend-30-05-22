@@ -23,8 +23,6 @@ public class Racer {
     private int age;
     private int points;
 
-
-
     @ManyToOne()
     private Team team;
 
@@ -41,6 +39,6 @@ public class Racer {
         this.lastName = body.getLastName();
         this.country = body.getCountry();
         this.age = body.getAge();
-        this.points = getPoints();
+        this.points = body.getPoints();
     }
 }

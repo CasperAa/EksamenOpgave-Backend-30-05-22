@@ -23,7 +23,7 @@ class RacerRepositoryTest {
     TeamRepository teamRepository;
 
     //Store attributes for the test methods
-    int racer1Id, racer2Id, team1Id, team2Id;
+    int racer1Id, racer2Id;
     String team1Name, team2Name;
 
 
@@ -54,9 +54,4 @@ class RacerRepositoryTest {
         assertEquals(1,allRacersInTeam.size());
     }
 
-    @Test
-    public void findRacerByCountry() {
-        List<Racer> allRacersFromDenmark = racerRepository.findRacerByCountry("Denmark");
-        assertEquals(2,allRacersFromDenmark.size());
-    }
 }

@@ -31,8 +31,7 @@ public class RacerService {
         } else {
             racers = racerRepository.findAll();
         }
-        //return candidates.stream().map(CandidateResponse::new).collect(Collectors.toList());
-        return racers.stream().map((candidate) -> new RacerResponse(candidate)).collect(Collectors.toList());
+        return racers.stream().map((racer) -> new RacerResponse(racer)).collect(Collectors.toList());
     }
 
     //Returns one Racer based on it's ID
@@ -51,21 +50,14 @@ public class RacerService {
     }
 
     //Edit all Racer attributes
-    public RacerResponse editRacer(RacerRequest racerRequest, int id){
-        Racer racerToEdit = racerRepository.findById(id).orElseThrow(()-> new Client4xxException("No racer with provided ID found"));
-        racerToEdit.setFirstName(racerToEdit.getFirstName());
-        racerToEdit.setLastName(racerToEdit.getLastName());
-        racerToEdit.setCountry(racerToEdit.getCountry());
-        racerToEdit.setAge(racerToEdit.getAge());
-        racerToEdit.setPoints(racerToEdit.getPoints());
-        return new RacerResponse(racerRepository.save(racerToEdit));
-    }
-
-    //Edit the racers points
-    public void editRacerPoints(int id, int updatedPoints){
-        Racer racerToEdit = racerRepository.findById(id).orElseThrow(()-> new Client4xxException("No racer with provided ID found"));
-        racerToEdit.setPoints(updatedPoints);
-        racerRepository.save(racerToEdit);
+    public RacerResponse editRacer(RacerRequest editedRacer, int id){
+        Racer racer = racerRepository.findById(id).orElseThrow(()-> new Client4xxException("No racer with provided ID found"));
+        racer.setFirstName(editedRacer.getFirstName());
+        racer.setLastName(editedRacer.getLastName());
+        racer.setCountry(editedRacer.getCountry());
+        racer.setAge(editedRacer.getAge());
+        racer.setPoints(editedRacer.getPoints());
+        return new RacerResponse(racerRepository.save(racer));
     }
 
     //Deletes a racer based on ID

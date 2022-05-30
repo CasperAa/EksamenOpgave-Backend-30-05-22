@@ -3,7 +3,6 @@ package com.example.tourdefrance.dto;
 import com.example.tourdefrance.Entity.Racer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
@@ -16,6 +15,7 @@ public class RacerResponse {
     private String country;
     private int age;
     private int points;
+    private String team;
 
     public RacerResponse(Racer body){
         this.id = body.getId();
@@ -23,7 +23,8 @@ public class RacerResponse {
         this.lastName = body.getLastName();
         this.country = body.getCountry();
         this.age = body.getAge();
-        this.points = getPoints();
-    }
+        this.points = body.getPoints();
+        this.team = body.getTeam().getName();
 
+    }
 }

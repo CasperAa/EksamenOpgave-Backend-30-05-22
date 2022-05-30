@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 @RequestMapping("/api/racers")
 public class RacerController {
 
@@ -21,8 +21,8 @@ public class RacerController {
 
     //Get all racers or all racers based on team
     @GetMapping
-    public List<RacerResponse> getAllRacers(@RequestParam(value = "team", required = false) String teamName) {
-        return racerService.getAllRacers(teamName);
+    public List<RacerResponse> getAllRacers(@RequestParam(value = "input", required = false) String input) {
+        return racerService.getAllRacers(input);
     }
 
     //Get a specific racer based on ID
@@ -31,22 +31,16 @@ public class RacerController {
         return racerService.getRacer(id);
     }
 
-    //Adds a new racer to DB
+    //Adds a new racer to DB given that the team ID is known
     @PostMapping("/{id}")
     public RacerResponse addRacer(@RequestBody RacerRequest body, @PathVariable int id) throws Exception{
         return racerService.addRacer(body, id);
     }
 
-    //Edit a Racer  (all attributes
+    //Edit a Racer  (all attributes)
     @PutMapping("/{id}")
     public RacerResponse editRacer(@RequestBody RacerRequest body, @PathVariable int id){
         return racerService.editRacer(body,id);
-    }
-
-    //Update a Racers Points
-    @PatchMapping ("/{id}/{newPoints}")
-    public void editPoints(@PathVariable int id,@PathVariable int newPoints) throws Exception {
-        racerService.editRacerPoints(id,newPoints);
     }
 
     //Delete a racer from DB
