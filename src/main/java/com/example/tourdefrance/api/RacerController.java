@@ -1,6 +1,5 @@
 package com.example.tourdefrance.api;
 
-import com.example.tourdefrance.Entity.Team;
 import com.example.tourdefrance.Service.RacerService;
 import com.example.tourdefrance.dto.RacerRequest;
 import com.example.tourdefrance.dto.RacerResponse;
@@ -21,8 +20,8 @@ public class RacerController {
 
     //Get all racers or all racers based on team
     @GetMapping
-    public List<RacerResponse> getAllRacers(@RequestParam(value = "input", required = false) String input) {
-        return racerService.getAllRacers(input);
+    public List<RacerResponse> getAllRacers(@RequestParam(value = "team", required = false) String team) {
+        return racerService.getAllRacers(team);
     }
 
     //Get a specific racer based on ID

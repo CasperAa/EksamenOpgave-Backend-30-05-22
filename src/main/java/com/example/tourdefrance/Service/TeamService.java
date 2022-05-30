@@ -1,10 +1,8 @@
 package com.example.tourdefrance.Service;
 
-import com.example.tourdefrance.Entity.Racer;
 import com.example.tourdefrance.Entity.Team;
 import com.example.tourdefrance.Repository.RacerRepository;
 import com.example.tourdefrance.Repository.TeamRepository;
-import com.example.tourdefrance.dto.RacerResponse;
 import com.example.tourdefrance.dto.TeamResponse;
 import org.springframework.stereotype.Service;
 

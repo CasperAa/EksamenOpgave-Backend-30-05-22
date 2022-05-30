@@ -31,7 +31,7 @@ public class RacerService {
         } else {
             racers = racerRepository.findAll();
         }
-        return racers.stream().map((racer) -> new RacerResponse(racer)).collect(Collectors.toList());
+        return racers.stream().map(RacerResponse::new).collect(Collectors.toList());
     }
 
     //Returns one Racer based on it's ID
@@ -46,7 +46,7 @@ public class RacerService {
         Racer racerToAdd = new Racer(body);
         team.addRacer(racerToAdd);
         teamRepository.save(team);
-        return new RacerResponse(racerToAdd);
+        return new RacerResponse(racerRepository.save(racerToAdd));
     }
 
     //Edit all Racer attributes
