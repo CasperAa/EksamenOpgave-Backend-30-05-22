@@ -9,9 +9,6 @@ import java.util.List;
 public interface RacerRepository extends JpaRepository <Racer, Integer>{
 
     List<Racer> findRacerByTeam_Name(String name);
-    List<Racer> findRacerByTeam_Id(int id);
     List<Racer> findRacerByCountry(String country);
-
-
 
 }

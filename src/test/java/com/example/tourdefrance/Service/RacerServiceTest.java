@@ -30,27 +30,4 @@ class RacerServiceTest {
     void deleteRacer() {
     }
 
-    @Test
-    void testGetAllRacers() {
-    }
-
-    @Test
-    void testGetRacer() {
-    }
-
-    @Test
-    void testAddRacer() {
-    }
-
-    @Test
-    void testEditRacer() {
-    }
-
-    @Test
-    void testEditRacerPoints() {
-    }
-
-    @Test
-    void testDeleteRacer() {
-    }
 }

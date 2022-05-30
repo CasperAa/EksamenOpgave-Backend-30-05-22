@@ -2,7 +2,6 @@ package com.example.tourdefrance.Repository;
 
 import com.example.tourdefrance.Entity.Racer;
 import com.example.tourdefrance.Entity.Team;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 
 @DataJpaTest
 class RacerRepositoryTest {
@@ -39,8 +39,6 @@ class RacerRepositoryTest {
 
         racer1Id = racer1.getId();
         racer2Id = racer2.getId();
-        team1Id = team1.getId();
-        team2Id = team2.getId();
         team1Name = team1.getName();
         team2Name = team2.getName();
 
@@ -57,11 +55,8 @@ class RacerRepositoryTest {
     }
 
     @Test
-    void findRacerByTeam_Id() {
-
-    }
-
-    @Test
-    void findRacerByCountry() {
+    public void findRacerByCountry() {
+        List<Racer> allRacersFromDenmark = racerRepository.findRacerByCountry("Denmark");
+        assertEquals(2,allRacersFromDenmark.size());
     }
 }
