@@ -28,7 +28,7 @@ public class Cyclist {
     @ManyToOne()
     private Team team;
 
-    @OneToMany(mappedBy = "cyclist", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cyclist", cascade ={ CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
     private Set<RaceData> raceData = new HashSet<>();
 
     public void addCyclist(RaceData data){

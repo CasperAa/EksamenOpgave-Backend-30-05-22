@@ -2,16 +2,11 @@ package com.example.tourdefrance.Service;
 
 import com.example.tourdefrance.Entity.Race;
 import com.example.tourdefrance.Entity.RaceData;
-import com.example.tourdefrance.Entity.Team;
 import com.example.tourdefrance.Error.Client4xxException;
-import com.example.tourdefrance.Repository.CyclistRepository;
 import com.example.tourdefrance.Repository.RaceDataRepository;
 import com.example.tourdefrance.Repository.RaceRepository;
-import com.example.tourdefrance.Repository.TeamRepository;
-import com.example.tourdefrance.dto.CyclistResponse;
 import com.example.tourdefrance.dto.RaceDataResponse;
 import com.example.tourdefrance.dto.RaceResponse;
-import com.example.tourdefrance.dto.TeamResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

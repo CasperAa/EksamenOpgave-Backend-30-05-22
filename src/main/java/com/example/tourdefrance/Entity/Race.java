@@ -23,7 +23,7 @@ public class Race {
     private int distance;
 
 
-    @OneToMany(mappedBy = "race", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "race", cascade ={ CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private Set<RaceData> raceData = new HashSet<>();
 
     public void addRace(RaceData data){

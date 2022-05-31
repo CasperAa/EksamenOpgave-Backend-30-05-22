@@ -1,12 +1,15 @@
 package com.example.tourdefrance.Service;
 
 import com.example.tourdefrance.Entity.Cyclist;
+import com.example.tourdefrance.Entity.RaceData;
 import com.example.tourdefrance.Entity.Team;
 import com.example.tourdefrance.Error.Client4xxException;
 import com.example.tourdefrance.Repository.CyclistRepository;
+import com.example.tourdefrance.Repository.RaceDataRepository;
 import com.example.tourdefrance.Repository.TeamRepository;
 import com.example.tourdefrance.dto.CyclistRequest;
 import com.example.tourdefrance.dto.CyclistResponse;
+import com.example.tourdefrance.dto.RaceDataResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,10 +20,12 @@ public class CyclistService {
 
     CyclistRepository cyclistRepository;
     TeamRepository teamRepository;
+    RaceDataRepository raceDataRepository;
 
-    public CyclistService(CyclistRepository cyclistRepository, TeamRepository teamRepository){
+    public CyclistService(CyclistRepository cyclistRepository, TeamRepository teamRepository, RaceDataRepository raceDataRepository){
         this.cyclistRepository = cyclistRepository;
         this.teamRepository = teamRepository;
+        this.raceDataRepository = raceDataRepository;
     }
 
     //Returns all cyclists, if teamName is added it returns cyclists based on that input
@@ -62,6 +67,7 @@ public class CyclistService {
 
     //Deletes a cyclist based on ID
     public void deleteCyclist(int id){
+        //raceDataRepository.deleteByCyclist_Id(id);
         cyclistRepository.deleteById(id);
     }
 

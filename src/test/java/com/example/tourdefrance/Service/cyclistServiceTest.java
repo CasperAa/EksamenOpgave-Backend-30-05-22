@@ -3,6 +3,7 @@ package com.example.tourdefrance.Service;
 import com.example.tourdefrance.Entity.Cyclist;
 import com.example.tourdefrance.Entity.Team;
 import com.example.tourdefrance.Repository.CyclistRepository;
+import com.example.tourdefrance.Repository.RaceDataRepository;
 import com.example.tourdefrance.Repository.TeamRepository;
 import com.example.tourdefrance.dto.CyclistRequest;
 import com.example.tourdefrance.dto.CyclistResponse;
@@ -22,10 +23,14 @@ class cyclistServiceTest {
     @Autowired
     CyclistRepository cyclistRepository;
 
+    @Autowired
     CyclistService cyclistService;
 
     @Autowired
     TeamRepository teamRepository;
+
+    @Autowired
+    RaceDataRepository raceDataRepository;
 
 
     static int cyclist1Id, cyclist2Id, team1Id;
@@ -56,7 +61,7 @@ class cyclistServiceTest {
 
     @BeforeEach
     void setupService(){
-        cyclistService = new CyclistService(cyclistRepository, teamRepository);
+        cyclistService = new CyclistService(cyclistRepository, teamRepository, raceDataRepository);
     }
 
     @Test

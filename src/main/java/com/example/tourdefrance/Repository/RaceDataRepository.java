@@ -10,4 +10,5 @@ public interface RaceDataRepository extends JpaRepository <RaceData, Integer>{
 
     List<RaceData> findRaceDataByRace_Id(int id);
     List<RaceData> findRaceDataByCyclist_Id(int id);
+    List<RaceData> deleteAllByCyclist_Id(int id);
 }

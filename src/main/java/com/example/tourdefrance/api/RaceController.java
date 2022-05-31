@@ -1,5 +1,6 @@
 package com.example.tourdefrance.api;
 
+import com.example.tourdefrance.Service.RaceDataService;
 import com.example.tourdefrance.Service.RaceService;
 import com.example.tourdefrance.dto.RaceDataResponse;
 import com.example.tourdefrance.dto.RaceResponse;
@@ -13,6 +14,7 @@ import java.util.List;
 public class RaceController {
 
     RaceService raceService;
+    RaceDataService raceDataService;
 
     public RaceController(RaceService raceService){
         this.raceService = raceService;
@@ -34,4 +36,8 @@ public class RaceController {
         return raceService.getRaceDataByCyclistId(id);
     }
 
+    @DeleteMapping("/cyclist/{id}")
+    public void deleteRaceData(@PathVariable int id) {
+        raceDataService.deleteRaceData(id);
+    }
 }
