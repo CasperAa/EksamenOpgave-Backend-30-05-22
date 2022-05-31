@@ -19,21 +19,21 @@ public class Team {
     private String name;
 
     @OneToMany(mappedBy = "team", cascade ={ CascadeType.PERSIST, CascadeType.MERGE})
-    private Set<Racer> racers = new HashSet<>();
+    private Set<Cyclist> cyclists = new HashSet<>();
 
     public Team(String name) {
         this.name = name;
     }
 
-    public void addRacer(Racer racer) {
-        this.racers.add(racer);
-        racer.setTeam(this);
+    public void addRacer(Cyclist cyclist) {
+        this.cyclists.add(cyclist);
+        cyclist.setTeam(this);
     }
 
-    public void addRacers(Set<Racer> racers) {
-        this.racers.addAll(racers);
-        for (Racer racer : racers) {
-            racer.setTeam(this);
+    public void addRacers(Set<Cyclist> cyclists) {
+        this.cyclists.addAll(cyclists);
+        for (Cyclist cyclist : cyclists) {
+            cyclist.setTeam(this);
         }
     }
 }

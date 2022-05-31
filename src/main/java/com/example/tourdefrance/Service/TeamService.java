@@ -1,7 +1,7 @@
 package com.example.tourdefrance.Service;
 
 import com.example.tourdefrance.Entity.Team;
-import com.example.tourdefrance.Repository.RacerRepository;
+import com.example.tourdefrance.Repository.CyclistRepository;
 import com.example.tourdefrance.Repository.TeamRepository;
 import com.example.tourdefrance.dto.TeamResponse;
 import org.springframework.stereotype.Service;
@@ -12,11 +12,11 @@ import java.util.stream.Collectors;
 @Service
 public class TeamService {
 
-    RacerRepository racerRepository;
+    CyclistRepository cyclistRepository;
     TeamRepository teamRepository;
 
-    public TeamService(RacerRepository racerRepository, TeamRepository teamRepository) {
-        this.racerRepository = racerRepository;
+    public TeamService(CyclistRepository cyclistRepository, TeamRepository teamRepository) {
+        this.cyclistRepository = cyclistRepository;
         this.teamRepository = teamRepository;
     }
 

@@ -1,13 +1,13 @@
 package com.example.tourdefrance.Repository;
 
-import com.example.tourdefrance.Entity.Racer;
+import com.example.tourdefrance.Entity.Cyclist;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface RacerRepository extends JpaRepository <Racer, Integer>{
+public interface CyclistRepository extends JpaRepository <Cyclist, Integer>{
 
-    List<Racer> findRacerByTeam_Name(String name);
+    List<Cyclist> findCyclistByTeam_Name(String name);
 
 }

@@ -1,17 +1,19 @@
 package com.example.tourdefrance.Entity;
 
-import com.example.tourdefrance.dto.RacerRequest;
+import com.example.tourdefrance.dto.CyclistRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
-public class Racer {
+public class Cyclist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +28,14 @@ public class Racer {
     @ManyToOne()
     private Team team;
 
-    public Racer(String firstName, String lastName, String country, int age, int points) {
+    @OneToMany(mappedBy = "cyclist", fetch = FetchType.EAGER)
+    private Set<RaceData> raceData = new HashSet<>();
+
+    public void addCyclist(RaceData data){
+        raceData.add(data);
+    }
+
+    public Cyclist(String firstName, String lastName, String country, int age, int points) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.country = country;
@@ -34,11 +43,12 @@ public class Racer {
         this.points = points;
     }
 
-    public Racer(RacerRequest body){
+    public Cyclist(CyclistRequest body){
         this.firstName = body.getFirstName();
         this.lastName = body.getLastName();
         this.country = body.getCountry();
         this.age = body.getAge();
         this.points = body.getPoints();
     }
+
 }

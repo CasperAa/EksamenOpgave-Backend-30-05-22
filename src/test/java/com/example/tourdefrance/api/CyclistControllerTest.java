@@ -1,10 +1,10 @@
 package com.example.tourdefrance.api;
 
 import com.example.tourdefrance.Entity.Team;
-import com.example.tourdefrance.Repository.RacerRepository;
+import com.example.tourdefrance.Repository.CyclistRepository;
 import com.example.tourdefrance.Repository.TeamRepository;
-import com.example.tourdefrance.Service.RacerService;
-import com.example.tourdefrance.dto.RacerRequest;
+import com.example.tourdefrance.Service.CyclistService;
+import com.example.tourdefrance.dto.CyclistRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,19 +23,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-class RacerControllerTest {
+class CyclistControllerTest {
 
     @Autowired
     MockMvc mockMvc;
 
     @Autowired
-    RacerController racerController;
+    CyclistController cyclistController;
 
     @Autowired
-    RacerRepository racerRepository;
+    CyclistRepository cyclistRepository;
 
     @Autowired
-    RacerService racerService;
+    CyclistService cyclistService;
 
     @Autowired
     TeamRepository teamRepository;
@@ -49,15 +49,15 @@ class RacerControllerTest {
 
     @BeforeEach
     public void setup() {
-        racerRepository.deleteAll();
+        cyclistRepository.deleteAll();
         teamRepository.deleteAll();
 
     }
 
     @Test
     void testAddRacer() throws Exception {
-        RacerRequest newRacer = new RacerRequest("Phil", "Colin", "UK", 24, 3);
-        mockMvc.perform(MockMvcRequestBuilders.post("/api/racers"+team1Id)
+        CyclistRequest newRacer = new CyclistRequest("Phil", "Colin", "UK", 24, 3);
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/cyclists"+team1Id)
                         .contentType("application/json")
                         .accept("application/json")
                         .content(objectMapper.writeValueAsString(newRacer)))
@@ -65,7 +65,7 @@ class RacerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").exists());
         // Verify that it actually ended in the database
-        assertEquals(1, racerRepository.count());
+        assertEquals(1, cyclistRepository.count());
     }
 
 }

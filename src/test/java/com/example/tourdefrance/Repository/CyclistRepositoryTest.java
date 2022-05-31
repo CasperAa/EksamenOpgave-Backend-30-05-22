@@ -1,6 +1,6 @@
 package com.example.tourdefrance.Repository;
 
-import com.example.tourdefrance.Entity.Racer;
+import com.example.tourdefrance.Entity.Cyclist;
 import com.example.tourdefrance.Entity.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @DataJpaTest
-class RacerRepositoryTest {
+class CyclistRepositoryTest {
 
     @Autowired
-    RacerRepository racerRepository;
+    CyclistRepository cyclistRepository;
 
     @Autowired
     TeamRepository teamRepository;
@@ -29,28 +29,28 @@ class RacerRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        racerRepository.deleteAll();
+        cyclistRepository.deleteAll();
         teamRepository.deleteAll();
         Team team1 = new Team("Premier Tech");
         Team team2 = new Team("Visma");
 
-        Racer racer1 = racerRepository.save(new Racer("Mads", "Würtz Schmidt", "Denmark", 28, 2));
-        Racer racer2 = racerRepository.save(new Racer("Dennis", "Knudsen", "Denmark", 34, 1));
+        Cyclist cyclist1 = cyclistRepository.save(new Cyclist("Mads", "Würtz Schmidt", "Denmark", 28, 2));
+        Cyclist cyclist2 = cyclistRepository.save(new Cyclist("Dennis", "Knudsen", "Denmark", 34, 1));
 
-        racer1Id = racer1.getId();
-        racer2Id = racer2.getId();
+        racer1Id = cyclist1.getId();
+        racer2Id = cyclist2.getId();
         team1Name = team1.getName();
         team2Name = team2.getName();
 
-        team1.addRacers(Set.of(racer1));
-        team2.addRacers(Set.of(racer2));
+        team1.addRacers(Set.of(cyclist1));
+        team2.addRacers(Set.of(cyclist2));
 
         teamRepository.saveAll(List.of(team1, team2));
     }
 
     @Test
     public void findRacerByTeam_Name() {
-        List<Racer> allRacersInTeam = racerRepository.findRacerByTeam_Name(team1Name);
+        List<Cyclist> allRacersInTeam = cyclistRepository.findCyclistByTeam_Name(team1Name);
         assertEquals(1,allRacersInTeam.size());
     }
 

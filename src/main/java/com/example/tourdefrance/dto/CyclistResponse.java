@@ -1,6 +1,6 @@
 package com.example.tourdefrance.dto;
 
-import com.example.tourdefrance.Entity.Racer;
+import com.example.tourdefrance.Entity.Cyclist;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class RacerResponse {
+public class CyclistResponse {
     private int id;
     private String firstName;
     private String lastName;
@@ -17,7 +17,7 @@ public class RacerResponse {
     private int points;
     private String team;
 
-    public RacerResponse(Racer body){
+    public CyclistResponse(Cyclist body){
         this.id = body.getId();
         this.firstName = body.getFirstName();
         this.lastName = body.getLastName();

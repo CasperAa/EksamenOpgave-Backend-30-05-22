@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class RacerRequest {
+public class CyclistRequest {
     String firstName;
     String lastName;
     String country;
