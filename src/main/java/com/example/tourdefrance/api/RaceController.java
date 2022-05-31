@@ -1,8 +1,6 @@
 package com.example.tourdefrance.api;
 
-import com.example.tourdefrance.Service.CyclistService;
 import com.example.tourdefrance.Service.RaceService;
-import com.example.tourdefrance.dto.CyclistResponse;
 import com.example.tourdefrance.dto.RaceDataResponse;
 import com.example.tourdefrance.dto.RaceResponse;
 import org.springframework.web.bind.annotation.*;

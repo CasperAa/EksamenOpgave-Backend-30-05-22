@@ -1,7 +1,5 @@
 package com.example.tourdefrance.dto;
 
-import com.example.tourdefrance.Entity.Cyclist;
-import com.example.tourdefrance.Entity.Race;
 import com.example.tourdefrance.Entity.RaceData;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
