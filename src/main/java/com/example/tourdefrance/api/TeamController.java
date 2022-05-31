@@ -16,7 +16,7 @@ public class TeamController {
         this.teamService = teamService;
     }
 
-    //Get all racers or all racers based on team
+    //Get all cyclists or all cyclists based on team
     @GetMapping
     public List<TeamResponse> getAllTeams () {
         return teamService.getAllTeams();

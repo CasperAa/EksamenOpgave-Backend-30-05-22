@@ -53,9 +53,9 @@ public class MakeTestData implements ApplicationRunner {
         Cyclist cyclist9 = new Cyclist("Sepp", "Kuss", "USA", 27, 2);
 
 
-        team1.addRacers(Set.of(cyclist1, cyclist2, cyclist3));
-        team2.addRacers(Set.of(cyclist4, cyclist5, cyclist6));
-        team3.addRacers(Set.of(cyclist7, cyclist8, cyclist9));
+        team1.addCyclists(Set.of(cyclist1, cyclist2, cyclist3));
+        team2.addCyclists(Set.of(cyclist4, cyclist5, cyclist6));
+        team3.addCyclists(Set.of(cyclist7, cyclist8, cyclist9));
 
         raceRepository.saveAll(List.of(race1, race2, race3));
         teamRepository.saveAll(List.of(team1, team2, team3));

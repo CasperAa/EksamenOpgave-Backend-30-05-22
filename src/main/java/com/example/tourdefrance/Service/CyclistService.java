@@ -23,7 +23,7 @@ public class CyclistService {
         this.teamRepository = teamRepository;
     }
 
-    //Returns all Racers, if teamName is added it returns racers based on that input
+    //Returns all cyclists, if teamName is added it returns cyclists based on that input
     public List<CyclistResponse> getAllCyclists(String teamName){
         List <Cyclist> cyclists;
         if(teamName != null){
@@ -34,33 +34,33 @@ public class CyclistService {
         return cyclists.stream().map(CyclistResponse::new).collect(Collectors.toList());
     }
 
-    //Returns one Racer based on it's ID
+    //Returns one cyclist based on it's ID
     public CyclistResponse getCyclist(int id) throws Exception {
-        Cyclist cyclist = cyclistRepository.findById(id).orElseThrow(()->new Client4xxException("No racer with that id exists"));
+        Cyclist cyclist = cyclistRepository.findById(id).orElseThrow(()->new Client4xxException("No cyclist with that id exists"));
         return new CyclistResponse(cyclist);
     }
 
-    //Adds new racer to DB
+    //Adds new cyclist to DB
     public CyclistResponse addCyclist(CyclistRequest body, int teamId) throws Exception{
-        Team team = teamRepository.findById(teamId).orElseThrow(()->new Client4xxException("No racer with that id exists"));
+        Team team = teamRepository.findById(teamId).orElseThrow(()->new Client4xxException("No cyclist with that id exists"));
         Cyclist cyclistToAdd = new Cyclist(body);
-        team.addRacer(cyclistToAdd);
+        team.addCyclist(cyclistToAdd);
         teamRepository.save(team);
         return new CyclistResponse(cyclistRepository.save(cyclistToAdd));
     }
 
-    //Edit all Racer attributes
-    public CyclistResponse editCyclist(CyclistRequest editedRacer, int id){
-        Cyclist cyclist = cyclistRepository.findById(id).orElseThrow(()-> new Client4xxException("No racer with provided ID found"));
-        cyclist.setFirstName(editedRacer.getFirstName());
-        cyclist.setLastName(editedRacer.getLastName());
-        cyclist.setCountry(editedRacer.getCountry());
-        cyclist.setAge(editedRacer.getAge());
-        cyclist.setPoints(editedRacer.getPoints());
+    //Edit all cyclist attributes
+    public CyclistResponse editCyclist(CyclistRequest cyclistRequest, int id){
+        Cyclist cyclist = cyclistRepository.findById(id).orElseThrow(()-> new Client4xxException("No cyclist with provided ID found"));
+        cyclist.setFirstName(cyclistRequest.getFirstName());
+        cyclist.setLastName(cyclistRequest.getLastName());
+        cyclist.setCountry(cyclistRequest.getCountry());
+        cyclist.setAge(cyclistRequest.getAge());
+        cyclist.setPoints(cyclistRequest.getPoints());
         return new CyclistResponse(cyclistRepository.save(cyclist));
     }
 
-    //Deletes a racer based on ID
+    //Deletes a cyclist based on ID
     public void deleteCyclist(int id){
         cyclistRepository.deleteById(id);
     }

@@ -25,12 +25,12 @@ public class Team {
         this.name = name;
     }
 
-    public void addRacer(Cyclist cyclist) {
+    public void addCyclist(Cyclist cyclist) {
         this.cyclists.add(cyclist);
         cyclist.setTeam(this);
     }
 
-    public void addRacers(Set<Cyclist> cyclists) {
+    public void addCyclists(Set<Cyclist> cyclists) {
         this.cyclists.addAll(cyclists);
         for (Cyclist cyclist : cyclists) {
             cyclist.setTeam(this);

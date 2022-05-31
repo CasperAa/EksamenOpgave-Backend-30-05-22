@@ -2,7 +2,6 @@ package com.example.tourdefrance.dto;
 import com.example.tourdefrance.Entity.Team;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter

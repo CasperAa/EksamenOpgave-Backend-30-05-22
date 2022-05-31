@@ -21,7 +21,6 @@ public class RaceResponse {
         this.name = body.getName();
         this.distance = body.getDistance();
         this.type = body.getType();
-
     }
 }
 
