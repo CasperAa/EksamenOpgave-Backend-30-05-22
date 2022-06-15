@@ -50,7 +50,7 @@ public class CyclistService {
         Team team = teamRepository.findById(teamId).orElseThrow(()->new Client4xxException("No cyclist with that id exists"));
         Cyclist cyclistToAdd = new Cyclist(body);
         team.addCyclist(cyclistToAdd);
-        teamRepository.save(team);
+        //teamRepository.save(team);
         return new CyclistResponse(cyclistRepository.save(cyclistToAdd));
     }
 
